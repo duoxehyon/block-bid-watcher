@@ -1,33 +1,34 @@
 use std::{
     cmp::Reverse,
     collections::{BinaryHeap, HashSet},
-    sync::Arc
+    sync::Arc,
 };
 
 use tokio::sync::{
     mpsc::{self, Receiver, Sender},
-    RwLock
+    RwLock,
 };
 
-use crate::BidTrace;
+use crate::types::BidTrace;
 
+// Manages (sort, organize) all bids given by relays
 #[derive(Clone)]
 pub struct BidManager {
-    highest_bid:         Arc<RwLock<Option<BidTrace>>>,
-    all_bids:            Arc<RwLock<BinaryHeap<Reverse<BidTrace>>>>,
-    unique_bids:         Arc<RwLock<HashSet<BidTrace>>>,
+    highest_bid: Arc<RwLock<Option<BidTrace>>>,
+    all_bids: Arc<RwLock<BinaryHeap<Reverse<BidTrace>>>>,
+    unique_bids: Arc<RwLock<HashSet<BidTrace>>>,
     top_bid_subscribers: Arc<RwLock<Vec<Sender<BidTrace>>>>,
-    new_bid_subscribers: Arc<RwLock<Vec<Sender<BidTrace>>>>
+    new_bid_subscribers: Arc<RwLock<Vec<Sender<BidTrace>>>>,
 }
 
 impl BidManager {
     pub fn new() -> Self {
         Self {
-            highest_bid:         Arc::new(RwLock::new(None)),
-            all_bids:            Arc::new(RwLock::new(BinaryHeap::new())),
-            unique_bids:         Arc::new(RwLock::new(HashSet::new())),
+            highest_bid: Arc::new(RwLock::new(None)),
+            all_bids: Arc::new(RwLock::new(BinaryHeap::new())),
+            unique_bids: Arc::new(RwLock::new(HashSet::new())),
             top_bid_subscribers: Arc::new(RwLock::new(Vec::new())),
-            new_bid_subscribers: Arc::new(RwLock::new(Vec::new()))
+            new_bid_subscribers: Arc::new(RwLock::new(Vec::new())),
         }
     }
 

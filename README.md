@@ -1,5 +1,5 @@
 # Block Builder Bids Poller 
-This program polls for the latest block values for each relay submitted by the builder. Example on how to use in `src/main.rs`.
+This program polls for the latest block values submitted by the builder for each relay. Example on how to use in `src/main.rs`.
 
 # Location, IP Values for relays
 

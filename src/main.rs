@@ -1,7 +1,7 @@
 use std::error::Error;
 
 use ethers::prelude::*;
-use flashbots_relay_grant::relay_client::RelayClients;
+use flashbots_relay_grant::relay_clients::RelayClients;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
