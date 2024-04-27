@@ -1,5 +1,5 @@
 [package]
-name = "relay_recon"
+name = "block_bid_watcher"
 version = "0.1.0"
 edition = "2021"
 
