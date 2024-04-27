@@ -1,5 +1,5 @@
 [package]
-name = "flashbots_relay_grant"
+name = "relay_recon"
 version = "0.1.0"
 edition = "2021"
 
