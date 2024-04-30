@@ -45,5 +45,3 @@ impl RelayClient {
         Some(bid_traces)
     }
 }
-
-// Manage all relay clients.
